@@ -35,8 +35,6 @@
 
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-                lpTag.start();
-
                 lpTag.newPage(window.location.href, {
                     section = [
                         "l1: product-information-page",
@@ -46,6 +44,8 @@
                         "storeZipCode: 78572"
                     ]
                 });
+
+                lpTag.start();
             }, ready);
         </script>
 
