@@ -30,6 +30,25 @@
             "url: " + window.location.href,
             "pageType: wm-bot-page"
         ];
+
+        var thdToken = "eyJzIjoiMDYyMzkyQjJEMjA2RkVCRDBVOjk3ODI3YWM3LWFhZTMtNGE3NS05OTFjLTAxNDgwYTU0NGQ4NyIsInUiOiIwNjIzOTJCMkQyMDZGRUJEMFUiLCJpIjoiWFVWeHpWYWx5VnpnSnZtMm0tWHlYTFF6WmE0LipBQUpUU1FBQ01ESUFBbE5MQUJ4ck9VUk9PWEp2VGxRNE5XZENjM1ZNY2pSUGFXdFZXbEpoUkc4OUFBUjBlWEJsQUFORFZGTUFBbE14QUFJd05RLi4qIiwiYyI6IkIyQyIsInQiOiIwNjIzOTJCMkQyMDQ3RUJEMFMiLCJ2IjoxNjkxNjA5NDc5MDI3LCJrIjoieSJ9.CZ3z82GlVyYWlXZk5OUJZGyx50PJ6GdlXCKEGmigevdR36_kTYGcIuK0GQocggNoItGl_ReaYDkYLNBBLrmRVsO-9n_YNquIyDYigLRYD5tUD-dcHWcn5KGsJXkBBLHo8pAnmwSWzytqZK_JV8weCB9M4DpC2DOTiKKyj_2teU0";
+
+        const identityFn = callback => {
+            callback({
+                iss: "https://www.homedepot.com",
+                acr: "loa1",
+                sub: "eyJhbGciOiJIUzI1NiJ9." + thdToken
+            })
+        }
+
+        window.lpGetAuthenticationToken = function (callback) {
+            console.log("method called");
+            var result = {
+                ssoKey: thdToken,
+                redirect_uri: window.location.href
+            };
+            callback(result);
+        };
     </script>
     <link rel="stylesheet" href="styles.css">
 </head>
