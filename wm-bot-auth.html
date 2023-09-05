@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sandbox</title>
+    <title>WM Bot - Auth Test</title>
 
     <!-- BEGIN LivePerson Monitor. -->
-    <script src="/assets/scripts/lpTag-72441587.js"></script>
+    <script src="/assets/scripts/lpTag-31564604.js"></script>
     <!-- END LivePerson Monitor. -->
 
     <script>
@@ -77,13 +77,34 @@
                 "storeZipCode": "20505" //STORE ZIP CODE
             }
         });
+
+        var thdToken = "eyJzIjoiMDYyMzkyQjJEMjA2RkVCRDBVOjlmZDYzZmVkLWU1ZTQtNDVhNC1hMmRiLWJkNTE1NGI5NDFmOSIsInUiOiIwNjIzOTJCMkQyMDZGRUJEMFUiLCJpIjoiS2dsZG5nOF9iMlVGWDU3UFl0VjVSR3pPZWljLipBQUpUU1FBQ01ESUFBbE5MQUJ4TmEyZzJWa1J4VEhKTFdXaEhPRVIzZUdkcFRqbEpOMU53WWxrOUFBUjBlWEJsQUFORFZGTUFBbE14QUFJd09BLi4qIiwiYyI6IkIyQyIsInQiOiIwNjIzOTJCMkQyMDQ3RUJEMFMiLCJ2IjoxNjkxNjE0NTA4ODUwLCJrIjoieSJ9.PeWtG2IsU5i_C2dE2Km0rPLmYMvgRMYCy-rvYk8qJ4kT8axsvef28iCrVzGsK-Ypy9hc0MvlCJN3C4bfsAO9aau02TAErnfglakykjImomcrYzr1ThTGZQPeaHdnwc13_Iise4SSWlQMNXX-od9FXmRV9664HU6ddA_mOikAm54";
+
+        const identityFn = callback => {
+            callback({
+                iss: "https://www.homedepot.com",
+                acr: "loa1",
+                sub: "eyJhbGciOiJIUzI1NiJ9." + thdToken
+            })
+        }
+
+        window.lpGetAuthenticationToken = function (callback) {
+            console.log("method called");
+            var result = {
+                ssoKey: thdToken,
+                redirect_uri: window.location.href
+            };
+            callback(result);
+        };
+
+        lpTag.identities.push(identityFn);
     </script>
 
     <link rel="stylesheet" href="assets/styles/styles.css">
 </head>
 
 <body>
-    <h1>Sandbox</h1>
+    <h1>WM Bot - Auth Test</h1>
 
     <ul>
         <li><a href="/EWT-Repository/index.html">Home</a></li>

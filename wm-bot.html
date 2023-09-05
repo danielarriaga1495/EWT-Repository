@@ -5,37 +5,85 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EWT - Web Messaging Bot Page</title>
+    <title>WM Bot</title>
 
     <!-- BEGIN LivePerson Monitor. -->
-    <script
-        type="text/javascript">window.lpTag = window.lpTag || {}, 'undefined' == typeof window.lpTag._tagCount ? (window.lpTag = { wl: lpTag.wl || null, scp: lpTag.scp || null, site: '31564604' || '', section: lpTag.section || '', tagletSection: lpTag.tagletSection || null, autoStart: lpTag.autoStart !== !1, ovr: lpTag.ovr || {}, _v: '1.10.0', _tagCount: 1, protocol: 'https:', events: { bind: function (t, e, i) { lpTag.defer(function () { lpTag.events.bind(t, e, i) }, 0) }, trigger: function (t, e, i) { lpTag.defer(function () { lpTag.events.trigger(t, e, i) }, 1) } }, defer: function (t, e) { 0 === e ? (this._defB = this._defB || [], this._defB.push(t)) : 1 === e ? (this._defT = this._defT || [], this._defT.push(t)) : (this._defL = this._defL || [], this._defL.push(t)) }, load: function (t, e, i) { var n = this; setTimeout(function () { n._load(t, e, i) }, 0) }, _load: function (t, e, i) { var n = t; t || (n = this.protocol + '//' + (this.ovr && this.ovr.domain ? this.ovr.domain : 'lptag.liveperson.net') + '/tag/tag.js?site=' + this.site); var o = document.createElement('script'); o.setAttribute('charset', e ? e : 'UTF-8'), i && o.setAttribute('id', i), o.setAttribute('src', n), document.getElementsByTagName('head').item(0).appendChild(o) }, init: function () { this._timing = this._timing || {}, this._timing.start = (new Date).getTime(); var t = this; window.attachEvent ? window.attachEvent('onload', function () { t._domReady('domReady') }) : (window.addEventListener('DOMContentLoaded', function () { t._domReady('contReady') }, !1), window.addEventListener('load', function () { t._domReady('domReady') }, !1)), 'undefined' === typeof window._lptStop && this.load() }, start: function () { this.autoStart = !0 }, _domReady: function (t) { this.isDom || (this.isDom = !0, this.events.trigger('LPT', 'DOM_READY', { t: t })), this._timing[t] = (new Date).getTime() }, vars: lpTag.vars || [], dbs: lpTag.dbs || [], ctn: lpTag.ctn || [], sdes: lpTag.sdes || [], hooks: lpTag.hooks || [], identities: lpTag.identities || [], ev: lpTag.ev || [] }, lpTag.init()) : window.lpTag._tagCount += 1;</script>
+    <script src="/assets/scripts/lpTag-31564604.js"></script>
     <!-- END LivePerson Monitor. -->
 
     <script>
         lpTag.section = lpTag.section || [];
-
-        /*
-
-            lpTag.section.push({
-                pageType: "pip",
-                sku: "308743988",
-                storeZipCode: "78572"
-            });
-
-        */
+        lpTag.sdes = lpTag.sdes || [];
 
         lpTag.section = [
-            "l1: wm-bot-page",
+            "l1: wm-bot",
             "url: " + window.location.href,
-            "pageType: wm-bot-page"
+            "pageType: wm-bot"
         ];
+
+        lpTag.sdes.push({
+            "type": "personal", //MANDATORY
+            "personal": {
+                "firstname": "Daniel", // FIRST NAME
+                "lastname": "Arriaga", // SURNAME
+                "age": {
+                    "age": 28, // AGE AS INTEGER
+                    "year": 1995, // BIRTH YEAR
+                    "month": 6, // BIRTH MONTH
+                    "day": 14 // BIRTH DAY
+                },
+                "contacts": [
+                    {
+                        "email": "darriaga@liveperson.com", // EMAIL
+                        "phone": "+52 8123541434", // PHONE NUMBER
+                        "address": {
+                            "country": "Mexico", // COUNTRY
+                            "region": "Monterrey" // REGION
+                        }
+                    }
+                ],
+                "gender": "MALE", // MALE, FEMALE, OTHER
+                "language": "en-US", // LANGUAGE
+                "company": "Liveperson" // VISITOR COMPANY NAME
+            }
+        });
+
+        lpTag.sdes.push({
+            "type": "ctmrinfo", //MANDATORY
+            "info": {
+                "cstatus": "cancelled", //CUSTOMER LIFECYCLE STATUS. FROM PRE-DEFINED LIST
+                "ctype": "b2c", //CUSTOMER TYPE OR TIER. FROM PRE-DEFINED LIST
+                "customerId": "138766AC", //UNIQUE CUSTOMER IDENTIFIER
+                "balance": -400.99, //THE CUSTOMER FINANCIAL BALANCE IN DECIMAL VALUE
+                "currency": "USD", //CURRENCY CODE
+                "socialId": "11256324780", //SOCIAL ID OF YOUR CHOICE: FACEBOOK, TWITTER
+                "imei": "3543546543545688", //UNIQUE DEVICE OR PHONE IDENTIFIER
+                "userName": "darriaga", //CONSUMER NICKNAME OR USERNAME
+                "companySize": 500, //COMPANY SIZE MEASURED BY NUMBER OF EMPLOYEES
+                "companyBranch": "East Village", //THE CUSTOMER'S COMPANY BRANCH NAME
+                "accountName": "bank corp", //THE CUSTOMER'S COMPANY NAME
+                "role": "broker", //CONSUMER ROLE TITLE
+                "lastPaymentDate": {
+                    "day": 15, //THE DAY OF THE LAST PAYMENT NUMERIC VALUE
+                    "month": 10, //THE MONTH OF THE LAST PAYMENT NUMERIC VALUE
+                    "year": 2014 //THE YEAR OF THE LAST PAYMENT NUMERIC VALUE
+                },
+                "registrationDate": {
+                    "day": 23, //THE DAY OF THE REGISTRATION NUMERIC VALUE
+                    "month": 5, //THE MONTH OF THE REGISTRATION NUMERIC VALUE
+                    "year": 2013 //THE YEAR OF THE REGISTRATION NUMERIC VALUE
+                },
+                "storeNumber": "123865", //STORE NUMBER
+                "storeZipCode": "20505" //STORE ZIP CODE
+            }
+        });
     </script>
-    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="assets/styles/styles.css">
 </head>
 
 <body>
-    <h1>EWT - Web Messaging Bot Page</h1>
+    <h1>WM Bot</h1>
 
     <ul>
         <li><a href="/EWT-Repository/index.html">Home</a></li>
@@ -43,11 +91,10 @@
         <li><a href="/EWT-Repository/rbm-bot.html">RBM Bot</a></li>
         <li><a href="/EWT-Repository/sms-bot.html">SMS Bot</a></li>
         <li><a href="/EWT-Repository/wm-bot.html">WM Bot</a></li>
-        <li><a href="/EWT-Repository/auth-test.html">Auth Test</a></li>
-        <li><a href="/EWT-Repository/product-information.html">Product Information Page</a></li>
-        <li><a href="/EWT-Repository/product-list.html">Product List Page</a></li>
+        <li><a href="/EWT-Repository/wm-bot-pip.html">WM Bot - PIP Page</a></li>
+        <li><a href="/EWT-Repository/wm-bot-plp.html">WM Bot - PLP Page</a></li>
+        <li><a href="/EWT-Repository/wm-bot-auth.html">WM Bot - Auth Test</a></li>
         <li><a href="/EWT-Repository/sandbox.html">Sandbox</a></li>
     </ul>
 </body>
-
 </html>
